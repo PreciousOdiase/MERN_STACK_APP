@@ -42,3 +42,35 @@ docker build -t mern-backend .
 ## Using Docker Compose
 
 `docker compose up -d`
+
+---
+
+# GitHub Actions CI/CD
+
+The project is set up with a GitHub Actions workflow to automate build, test, and deployment:
+
+- Builds frontend and backend Docker images.
+
+- Pushes images to Docker Hub.
+
+- SSHes into an EC2 instance and pulls + runs the latest containers.
+
+### Secrets required:
+
+- DOCKERHUB_USERNAME – your Docker Hub username
+
+- DOCKERHUB_TOKEN – Docker Hub access token
+
+- EC2_HOST – public IP or DNS of EC2
+
+- EC2_USER – usually ubuntu or ec2-user
+
+- EC2_SSH_KEY – private key content of the SSH key associated with the EC2 instance
+
+### Workflow Notes
+
+- Ensure Docker is installed on the EC2 instance.
+
+- Make sure the frontend and backend use the same Docker network for proper communication.
+
+- The workflow skips tests for now if no npm test scripts are defined.
