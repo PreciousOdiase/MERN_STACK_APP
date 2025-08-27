@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        project: [frontend, backend]
+        project: [mern/frontend, mern/backend]
 
     steps:
       - name: Checkout code
