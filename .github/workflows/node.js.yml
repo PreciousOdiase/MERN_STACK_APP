@@ -44,12 +44,12 @@ jobs:
 
       - name: Build & push Frontend image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mern-frontend:latest .mern/frontend
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mern-frontend:latest ./mern/frontend
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/mern-frontend:latest
 
       - name: Build & push Backend image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mern-backend:latest .mern/backend
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mern-backend:latest ./mern/backend
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/mern-backend:latest
 
   deploy:
